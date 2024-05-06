@@ -6,12 +6,18 @@ import { SiFiles } from "react-icons/si";
 import React, { useState } from 'react';
 import { FaRegCircleDot } from "react-icons/fa6";
 import { FaRegCircle } from "react-icons/fa6";
+import { useSideBarToggle } from '@/hooks/use-sidebar-toggle';
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hoverEnabled, setHoverEnabled] = useState(true);
+  const { toggleCollapse, invokeToggleCollapse } = useSideBarToggle();
+  const sidebarToggle = () =>{ 
+      invokeToggleCollapse();
+  }
 
   const toggleHover = () => {
+    sidebarToggle();
     setHoverEnabled(!hoverEnabled);
   };
 
