@@ -3,6 +3,9 @@
 import { useSideBarToggle } from "@/hooks/use-sidebar-toggle";
 import { ReactNode } from 'react';
 import Header from "./Header";
+import Sidebar from "./Sidebar";
+import { useSession } from 'next-auth/react'
+import { useRouter } from "next/navigation";
 
 export default function PageWrapper({ children }: { children: ReactNode }) {
     
@@ -12,12 +15,30 @@ export default function PageWrapper({ children }: { children: ReactNode }) {
     ${toggleCollapse ? 'sm:pl-[14rem]' : 'sm:pl-[4rem]'}
   `;
 
+  const router = useRouter();
+  const { data: session, status } = useSession({
+      required: true,
+      onUnauthenticated() {
+          router.push('/LoginForm?callbackUrl=/profile'); // Redirect to LoginForm if not authenticated
+      }
+  });
+  console.log("datadata",status, session)
+
+  if (status === "authenticated" && session !== undefined || null) {
     return (
-        <>
-        <div className={bodyStyle}>
-        <Header />
+        <div className="flex flex-col h-full w-full">
+            <Sidebar />
+            <div className={bodyStyle}>
+                <Header />
+                {children}
+            </div>
+        </div>
+    );
+} else {
+    return (
+        <div className="flex flex-col h-full w-full">
             {children}
         </div>
-        </>
     );
 }
+}  

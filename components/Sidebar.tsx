@@ -49,10 +49,10 @@ const Sidebar: React.FC = () => {
           </button>            
         </div>
         <div className="flex flex-col space-y-2 mt-4">
-          <a href="#" className="flex items-center p-2 bg-gray-700 hover:bg-gray-600 rounded">
+          <Link href="/" className="flex items-center p-2 bg-gray-700 hover:bg-gray-600 rounded">
             <TableRowsOutlinedIcon />
             {isOpen && <span>Table</span>}
-          </a>
+          </Link>
           <Link href="/profile" className="flex items-center p-2 bg-gray-700 hover:bg-gray-600 rounded">
             <AccountCircleOutlinedIcon />
             {isOpen && <span>Profile</span>}

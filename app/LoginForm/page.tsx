@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { signIn, useSession } from "next-auth/react";
+import { signIn } from 'next-auth/react';
 
 const LoginForm = () => {
     const [username, setUsername] = useState('');
@@ -15,28 +15,24 @@ const LoginForm = () => {
   
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
-        const result = await signIn('credentials', {
-            redirect: false,
-            username,
-            password,
+
+        signIn('credentials', {
+          username: "admin",
+          password: "admin123",
+          callbackUrl: '/profile'
         });
-        if (result?.ok) {
-            console.log("Login successful!");
-        } else {
-            console.log("Login failed!");
-        }
+
     };
-    
     
     return (
         <div className="flex flex-col md:flex-row h-screen">
             <div className="flex-1 flex justify-center items-center bg-cover"
-                style={{ backgroundImage: "url('LoginBackground.png')" }}>
+                style={{ backgroundImage: "url('./LoginBackground.png')" }}>
                 <div className="w-full h-full md:hidden bg-black bg-opacity-50 flex justify-center items-center">
                     {/* Form container for small screens */}    
                     <form method="POST" onSubmit={handleSubmit} className="w-full max-w-md p-4 bg-white rounded-3xl m-4 p-8">
                         <div className="flex justify-center mb-8">
-                            <img src="LoginLogo.png" className="h-12" alt="Login Logo" />
+                            <img src="./LoginLogo.png" className="h-12" alt="Login Logo" />
                         </div>
                         <h1 className="text-3xl font-bold mb-2 text-black">Login!</h1>
                         <h2 className="text-sm mb-4 text-black">Enter your credentials to get access</h2>
