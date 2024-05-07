@@ -7,6 +7,9 @@ import React, { useState } from 'react';
 import { FaRegCircleDot } from "react-icons/fa6";
 import { FaRegCircle } from "react-icons/fa6";
 import { useSideBarToggle } from '@/hooks/use-sidebar-toggle';
+import TableRowsOutlinedIcon from '@mui/icons-material/TableRowsOutlined';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import Link from 'next/link';
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,10 +25,10 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <div className="absolute h-screen">
+    <div className="absolute h-screen z-10">
       <div 
         className="h-full bg-gray-800 text-white w-64 transition-width duration-300 p-2"
-        style={{ width: isOpen ? '16rem' : '4rem' }}
+        style={{ width: isOpen ? '14rem' : '4rem' }}
         onMouseEnter={() => hoverEnabled && setIsOpen(true)}
         onMouseLeave={() => hoverEnabled && setIsOpen(false)}
       >
@@ -47,13 +50,13 @@ const Sidebar: React.FC = () => {
         </div>
         <div className="flex flex-col space-y-2 mt-4">
           <a href="#" className="flex items-center p-2 bg-gray-700 hover:bg-gray-600 rounded">
-            <SiFiles size={24} className="mr-2" />
+            <TableRowsOutlinedIcon />
             {isOpen && <span>Table</span>}
           </a>
-          <a href="#" className="flex items-center p-2 bg-gray-700 hover:bg-gray-600 rounded">
-            <GiCaptainHatProfile size={24} className="mr-2" />
+          <Link href="/profile" className="flex items-center p-2 bg-gray-700 hover:bg-gray-600 rounded">
+            <AccountCircleOutlinedIcon />
             {isOpen && <span>Profile</span>}
-          </a>
+          </Link>
         </div>
       </div>
     </div>
