@@ -1,13 +1,13 @@
 "use client";
 
 import Header from "@/components/Header";
-import Profile from "@/components/Profile";
+import TableUI from "@/components/TableUI";
 import { useSideBarToggle } from "@/hooks/use-sidebar-toggle";
 
 export default function Home() {
   return (
     <main>
-    {/* <LoginForm /> */}
+    <TableUI path={''} manageData={''} activeStatus={true}/>
     </main>
   );
 }

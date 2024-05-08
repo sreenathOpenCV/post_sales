@@ -19,7 +19,7 @@ export default function PageWrapper({ children }: { children: ReactNode }) {
   const { data: session, status } = useSession({
       required: true,
       onUnauthenticated() {
-          router.push('/LoginForm?callbackUrl=/profile'); // Redirect to LoginForm if not authenticated
+          router.push('/LoginForm?callbackUrl=/');
       }
   });
   console.log("datadata",status, session)
@@ -41,4 +41,4 @@ export default function PageWrapper({ children }: { children: ReactNode }) {
         </div>
     );
 }
-}  
+}

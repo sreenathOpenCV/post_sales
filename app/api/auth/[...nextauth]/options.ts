@@ -18,11 +18,11 @@ export const options: NextAuthOptions = {
                 }
             },
             async authorize(credentials) {
-
                 // This is where you need to retrieve user data 
                 // to verify with credentials
                 // Docs: https://next-auth.js.org/configuration/providers/credentials
-                const user = { id: "42", name: "admin", password: "admin123" }
+
+                const user = { id: "42", name: "admin", password: "admin123", role: "manager" }
 
                 if (credentials?.username === user.name && credentials?.password === user.password) {
                     return user
@@ -32,7 +32,20 @@ export const options: NextAuthOptions = {
             }
         })
     ],
+    callbacks: {
+        // Ref: https://authjs.dev/guides/basics/role-based-access-control#persisting-the-role
+        async jwt({ token, user }) {
+            if (user) token.role = user.role
+            return token
+        },
+        // If you want to use the role in client components
+        async session({ session, token }) {
+            if (session?.user) session.user.role = token.role
+            return session
+        },
+    },
+    secret: process.env.NEXTAUTH_URL,
     pages:{
-            signIn:"/LoginForm"
+        signIn:"/LoginForm"
     }
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from 'next/image';
-import { GiCaptainHatProfile } from "react-icons/gi";
+import ClearAllIcon from '@mui/icons-material/ClearAll';
 import { SiFiles } from "react-icons/si";
 import React, { useState } from 'react';
 import { FaRegCircleDot } from "react-icons/fa6";
@@ -50,12 +50,16 @@ const Sidebar: React.FC = () => {
         </div>
         <div className="flex flex-col space-y-2 mt-4">
           <Link href="/" className="flex items-center p-2 bg-gray-700 hover:bg-gray-600 rounded">
-            <TableRowsOutlinedIcon />
+            <ClearAllIcon />
             {isOpen && <span>Table</span>}
           </Link>
           <Link href="/profile" className="flex items-center p-2 bg-gray-700 hover:bg-gray-600 rounded">
             <AccountCircleOutlinedIcon />
             {isOpen && <span>Profile</span>}
+          </Link>
+          <Link href="/studentSuccessView" className="flex items-center p-2 bg-gray-700 hover:bg-gray-600 rounded">
+            <AccountCircleOutlinedIcon />
+            {isOpen && <span>Student View</span>}
           </Link>
         </div>
       </div>
