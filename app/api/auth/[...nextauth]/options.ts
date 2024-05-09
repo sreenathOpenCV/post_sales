@@ -22,7 +22,7 @@ export const options: NextAuthOptions = {
                 // to verify with credentials
                 // Docs: https://next-auth.js.org/configuration/providers/credentials
 
-                const user = { id: "42", name: "admin", password: "admin123", role: "manager" }
+                const user = { id: "42", name: "srinath", password: "admin123", role: "manager" }
 
                 if (credentials?.username === user.name && credentials?.password === user.password) {
                     return user
@@ -44,7 +44,7 @@ export const options: NextAuthOptions = {
             return session
         },
     },
-    secret: process.env.NEXTAUTH_URL,
+    secret: process.env.NEXTAUTH_SECRET,
     pages:{
         signIn:"/LoginForm"
     }

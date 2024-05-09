@@ -105,7 +105,7 @@ const page = ({
   return (
     <>
       <div className="p-3 bg-white rounded-lg shadow-2xl">
-        <h1>Your are either admin or manager user</h1>
+        <h1>Your are either admin or audit user</h1>
         <div className="rounded-lg shadow hidden md:block bg-white">
         <div>
             <table className="w-full overflow-y-scroll">
@@ -113,18 +113,12 @@ const page = ({
                     <tr>
                         <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">Date</th>
                         <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">Student Name</th>
-                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">Course 0</th>
-                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">Course 1</th>
-                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">Course 2</th>
-                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">Course 3</th>
-                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">Course 4</th>
-                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">Course 5</th>
-                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">Course 6</th>
-                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">OBC</th>
-                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">TBC</th>
-                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">PBC</th>
-                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">Modified Date</th>
-                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">View</th>
+                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">Sales POC</th>
+                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">Payment Amount</th>
+                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">Payment Type</th>
+                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">Audit Status</th>
+                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">Audit Count</th>
+                        <th className="w-1/6 p-3 text-sm font-semibold tracking-wide text-left">Edit</th>
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100 max-h-80 overflow-y-scroll">
@@ -136,12 +130,6 @@ const page = ({
                             <td className="p-3 text-sm text-gray-700">{record.paymentAmount}</td>
                             <td className="p-3 text-sm text-gray-700">{record.paymentType}</td>
                             <td className="p-3 text-sm text-gray-700">{record.auditStatus}</td>
-                            <td className="p-3 text-sm text-gray-700">{record.auditCount}</td>
-                            <td className="p-3 text-sm text-gray-700">{record.auditCount}</td>
-                            <td className="p-3 text-sm text-gray-700">{record.auditCount}</td>
-                            <td className="p-3 text-sm text-gray-700">{record.auditCount}</td>
-                            <td className="p-3 text-sm text-gray-700">{record.auditCount}</td>
-                            <td className="p-3 text-sm text-gray-700">{record.auditCount}</td>
                             <td className="p-3 text-sm text-gray-700">{record.auditCount}</td>
                             <td className="p-3 text-sm text-gray-700">
                                 <button onClick={() => handleEditClick(record)}>

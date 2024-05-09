@@ -60,37 +60,37 @@ export default function Header() {
             <Button variant="outlined" onClick={handleClickOpenPopup} sx={{width:"100%", height: "100%"}}>
             </Button>            
             <Dialog
-      open={openPopup}
-      TransitionComponent={Transition}
-      keepMounted
-      onClose={handleClosePopup}
-      aria-describedby="alert-dialog-slide-description"
-      fullWidth={true}  // Ensures the dialog takes up the full width of the container
-      maxWidth="sm"  // Adjust this value to control the maximum size of the dialog
-    >
-      <DialogTitle>{"Metro Search"}</DialogTitle>
-      <DialogContent>
-        <DialogContentText id="alert-dialog-slide-description">
-          Navigate to any component you want...!
-        </DialogContentText>
-        <TextField
-          autoFocus
-          margin="dense"
-          id="search"
-          label="Search Component"
-          type="search"
-          fullWidth  // Makes the search box take up the full width of the dialog content
-          variant="outlined"
-          placeholder="Type here to search..."
-        />
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClosePopup}>Disagree</Button>
-        <Button onClick={handleClosePopup} color="primary">
-          Agree
-        </Button>
-      </DialogActions>
-    </Dialog>
+            open={openPopup}
+            TransitionComponent={Transition}
+            keepMounted
+            onClose={handleClosePopup}
+            aria-describedby="alert-dialog-slide-description"
+            fullWidth={true}  // Ensures the dialog takes up the full width of the container
+            maxWidth="sm"  // Adjust this value to control the maximum size of the dialog
+          >
+            <DialogTitle>{"Metro Search"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-slide-description">
+                Navigate to any component you want...!
+              </DialogContentText>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="search"
+                label="Search Component"
+                type="search"
+                fullWidth  // Makes the search box take up the full width of the dialog content
+                variant="outlined"
+                placeholder="Type here to search..."
+              />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClosePopup}>Disagree</Button>
+              <Button onClick={handleClosePopup} color="primary">
+                Agree
+              </Button>
+            </DialogActions>
+          </Dialog>
           <div className="flex justify-center px-2">
             <button className="p-2 border rounded-xl" onClick={handleClickOpenPopup}>
               <SearchIcon sx={{ color: "black" }}/>

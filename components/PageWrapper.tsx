@@ -11,7 +11,7 @@ export default function PageWrapper({ children }: { children: ReactNode }) {
     
     const { toggleCollapse } = useSideBarToggle();
     const bodyStyle = `
-    bg-background flex flex-col h-full overflow-y-auto
+    bg-background flex flex-col h-full
     ${toggleCollapse ? 'sm:pl-[14rem]' : 'sm:pl-[4rem]'}
   `;
 
@@ -30,7 +30,9 @@ export default function PageWrapper({ children }: { children: ReactNode }) {
             <Sidebar />
             <div className={bodyStyle}>
                 <Header />
+                <div className="overflow-hidden overflow-y-auto">
                 {children}
+                </div>
             </div>
         </div>
     );

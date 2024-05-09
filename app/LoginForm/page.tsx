@@ -17,7 +17,7 @@ const LoginForm = () => {
         event.preventDefault();
 
         signIn('credentials', {
-          username: "admin",
+          username: "srinath",
           password: "admin123",
           callbackUrl: '/profile'
         });
